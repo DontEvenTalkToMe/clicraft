@@ -10,6 +10,7 @@ Pre-requisites:
 ```sh
 git clone https://github.com/DontEvenTalkToMe/clicraft
 cd clicraft
+chmod +x install.sh
 ./install.sh
 ```
 2. Type in 'clicraft' in your terminal to get started! Have fun!
