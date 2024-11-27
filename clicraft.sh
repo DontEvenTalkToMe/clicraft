@@ -47,7 +47,16 @@ save () {
     echo "Saving.."
     sleep .1; tput rc; tput el
     echo "Saving..."
-    echo -e "$health\n$y_level\n$mineSwitch\n$spawnBiome\n$spawnPassiveMobsBase\n$spawnBiomeDesc\n$biome\n$passiveMobsBase\n$biomeDescription\n$iron\n$diamond\n$cobblestone\n$deepslate\n$dirt\n$log\n$plank\n$stick\n$pickaxe_wood\n$pickaxe_iron\n$pickaxe_diamond\n$sword_wooden\n$sword_iron\n$sword_diamond\n$bone\n$arrow\n$rotten_flesh\n$string\n$spider_eye\n$bow\n$porkchop\n$chicken\n$steak\n$leather\n$feather" > $DATA_FILE
+    saveFile=(
+        health y_level mineSwitch spawnBiome spawnPassiveMobsBase spawnBiomeDesc
+        biome passiveMobsBase biomeDescription
+        iron diamond cobblestone deepslate dirt log plank stick
+        pickaxe_wood pickaxe_iron pickaxe_diamond
+        sword_wooden sword_iron sword_diamond
+        bone arrow rotten_flesh string spider_eye bow
+        porkchop chicken steak leather feather
+    )
+  declare -p "${saveFile[@]}" > "$DATA_FILE"
 }
 
 # Spawn biome
@@ -538,40 +547,7 @@ tutorial
 if [[ -e $DATA_FILE ]]
 then
     echo "Loading previous save from $DATA_FILE..."
-    health=$(awk 'NR==1' $DATA_FILE)
-    y_level=$(awk 'NR==2' $DATA_FILE)
-    mineSwitch=$(awk 'NR==3' $DATA_FILE)
-    spawnBiome=$(awk 'NR==4' $DATA_FILE)
-    spawnPassiveMobsBase=$(awk 'NR==5' $DATA_FILE)
-    spawnBiomeDesc=$(awk 'NR==6' $DATA_FILE)
-    biome=$(awk 'NR==7' $DATA_FILE)
-    passiveMobsBase=$(awk 'NR==8' $DATA_FILE)
-    biomeDescription=$(awk 'NR==9' $DATA_FILE)
-    iron=$(awk 'NR==10' $DATA_FILE)
-    diamond=$(awk 'NR==11' $DATA_FILE)
-    cobblestone=$(awk 'NR==12' $DATA_FILE)
-    deepslate=$(awk 'NR==13' $DATA_FILE)
-    dirt=$(awk 'NR==14' $DATA_FILE)
-    log=$(awk 'NR==15' $DATA_FILE)
-    plank=$(awk 'NR==16' $DATA_FILE)
-    stick=$(awk 'NR==17' $DATA_FILE)
-    pickaxe_wood=$(awk 'NR==18' $DATA_FILE)
-    pickaxe_iron=$(awk 'NR==19' $DATA_FILE)
-    pickaxe_diamond=$(awk 'NR==20' $DATA_FILE)
-    sword_wooden=$(awk 'NR==21' $DATA_FILE)
-    sword_iron=$(awk 'NR==22' $DATA_FILE)
-    sword_diamond=$(awk 'NR==23' $DATA_FILE)
-    bone=$(awk 'NR==24' $DATA_FILE)
-    arrow=$(awk 'NR==25' $DATA_FILE)
-    rotten_flesh=$(awk 'NR==26' $DATA_FILE)
-    string=$(awk 'NR==27' $DATA_FILE)
-    spider_eye=$(awk 'NR==28' $DATA_FILE)
-    bow=$(awk 'NR==29' $DATA_FILE)
-    porkchop=$(awk 'NR==30' $DATA_FILE)
-    chicken=$(awk 'NR==31' $DATA_FILE)
-    steak=$(awk 'NR==32' $DATA_FILE)
-    leather=$(awk 'NR==33' $DATA_FILE)
-    feather=$(awk 'NR==34' $DATA_FILE)
+    source $DATA_FILE
 else
     echo "Press [Enter] to generate new world"
     read gen_world
