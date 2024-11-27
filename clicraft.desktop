@@ -3,7 +3,7 @@
 Name=clicraft
 Version=1.0
 Comment=Unofficial Terminal Game based on Minecraft
-Exec=/usr/bin/clicraft
+Exec=/usr/local/bin/clicraft
 Icon=minecraft
 Terminal=true
 Type=Application
