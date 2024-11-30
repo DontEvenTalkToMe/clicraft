@@ -115,6 +115,7 @@ death () {
     tree=$spawnTrees
     mineSwitch=1
     health=20
+    y_level=60
     invReset
     if [[ "$respawn" == "e" ]]
     then
