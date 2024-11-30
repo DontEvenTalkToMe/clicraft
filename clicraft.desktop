@@ -1,7 +1,7 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Name=clicraft
-Version=1.0
+Version=1.1
 Comment=Unofficial Terminal Game based on Minecraft
 Exec=/usr/local/bin/clicraft
 Icon=minecraft
