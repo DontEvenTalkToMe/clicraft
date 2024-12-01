@@ -1,5 +1,9 @@
 # clicraft
+<div align="center">
+<img src="images/fulllogo.png" alt="Logo">
+
 Welcome to cli-craft, DontEvenTalkToMe's Unofficial Minecraft Clone built for a CLI! It is scripted in Bash!
+</div>
 
 ## Installation:
 
